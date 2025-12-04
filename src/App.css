@@ -1,20 +1,42 @@
+/* COLORES */
+
+@property --rojoCereza{
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #D93056;
+}
+
+/* CODIGO */
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  background-color: #F6F4EF;
+}
+
 .App {
   text-align: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.contenedor{
+  width: 100%;
+  height: 100%;
 }
 
 .App-logo {
-  max-height: 20vmin;
+  max-height: 18vmin;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #f6f4ef;
+  background-image: url(resources/fondo.png);
+  background-size: 100vw 100vh;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,11 +44,107 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  gap: 70px;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header button{
+  border: none;
+  padding: 15px;
+  background-color: var(--rojoCereza);
+  width: 14%;
+  min-width: 200px;
+  font-size: 70%;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
 }
+
+.App-header button:hover{
+  box-shadow: inset 0 5px 4px rgba(0, 0, 0, 0.3);
+  scale: 1.05;
+}
+
+h1{
+  color: #272e3d;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 300;
+}
+
+.kozo__data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1 > span{
+  color: #4271CD;
+}
+
+h1 > span span{
+  color: var(--rojoCereza);
+}
+
+.kozo__data p{
+  font-weight: 200;
+  font-size: 20px;
+  width: 60%;
+}
+
+.Estructura__cambio::before{
+  content: ' Pila ';
+  font-weight: 500;
+  color: #4271CD;
+  animation: maquina 6s infinite;
+  transition: all 0.3s;
+}
+
+.Estructura__cambio::after{
+  content: '';
+  width: calc(100% + 8px);
+  height: 100%;
+  background-color: #F6F4EF;
+  border-left: 1px solid #4271CD;
+  right: -8px;
+  animation: cursor 0.8s infinite;
+}
+
+.imagen{
+  height: 40vh;
+  
+}
+
+.toriigate{
+  height: 100%;
+  margin: 0;
+}
+
+footer{
+  height: 200px;
+  width: 100%;
+  background-image: linear-gradient(to top, var(--rojoCereza), #CE4B4B);
+}
+
+@keyframes cursor {
+  to{
+    border-left: 1px solid #F6F4EF00;
+  }
+}
+
+@keyframes maquina{
+  0%, 33%{
+    content: ' Pila ';
+  }
+  34%, 66%{
+    content: ' Cola ';
+  }
+  67%, 100%{
+    content: ' Lista ';
+  }
+}
+
 
 /* @keyframes App-logo-spin {
   from {
