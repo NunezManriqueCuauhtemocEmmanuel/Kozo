@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../styles/navbar.css';
+import '../styles/hora.css';
 
 const Navbar = () => {
 
@@ -28,12 +28,12 @@ const Navbar = () => {
         updateDateTime(); 
         const interval = setInterval(updateDateTime, 1000);
 
-        return () => clearInterval(interval); // limpia al desmontar
+        return () => clearInterval(interval); 
     }, []);
 
     return (
-        <nav className="balck">
-            <div className="data1">
+        <div className="hora">
+            <div className="data">
                 <div className="fecha">
                     {date}
                 </div>
@@ -42,7 +42,7 @@ const Navbar = () => {
                     {time}
                 </div>
             </div>
-        </nav>
+        </div>
     );
 };
 

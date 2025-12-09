@@ -1,18 +1,93 @@
+/* COLORES */
+
+@property --rojoCereza{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #D93056;
+}
+@property --rojoCereza1{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #f83b64;
+}
+
+@property --azulPalido{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #c4cbe1;
+}
+
+@property --azulPalido2{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #8893ae;
+}
+
+@property --azulPalido3{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #e1e4ef;
+}
+
+@property --azulCielo{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #4271CD;
+}
+
+
+
 body {
     width: 100%;
+}
+
+.pila{
+    display: flex;
+    /* background-image: linear-gradient(to bottom, var(--azulCielo), #213967); */
+    background-image: url(../resources/fondo.png);
+    /* background-color: var(--rojoCereza); */
+    background-size: 100vw 100vh;
 }
 
 .barra {
     width: 100%;
     background-color: white;
     height: 50px;
-    margin: 20px 0px;
+    margin: 30px 0px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 50px;
+    padding: 0px 30px 0px 50px;
     gap: 10px;
-    color: #4271CD;
+    color: var(--rojoCereza);
+    border-bottom: 2px solid var(--azulPalido);
+    /* box-shadow: 2px 7px 7px rgba(0, 0, 0, 0.3); */
+}
+
+.barra h3{
+    color: var(--azulCielo);
+}
+
+.navegacion{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navegacion p{
+    color: #222;
+}
+
+.navegacion .vinculo{
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--azulCielo);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.vinculo:hover{
+    scale: 1.1;
 }
 
 .main {
@@ -33,12 +108,14 @@ body {
     display: flex;
     gap: 20px;
     margin-top: 20px;
+    border-top: 1px solid var(--azulPalido2);
+    padding: 20px 0px;
 }
 
 .stack-area {
     flex: 2;
-    height: 67vh;
-    background: #eaf1ff;
+    height: 65vh;
+    background-color: var(--azulPalido3);
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -46,12 +123,13 @@ body {
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.3);
 }
 
 .item {
     width: 80px;
     height: 50px;
-    background: #5c7bd9;
+    background-color: var(--rojoCereza);
     color: white;
     font-weight: bold;
     border-radius: 8px;
@@ -60,10 +138,113 @@ body {
     align-items: center;
     margin: 2px 0;
     opacity: 0;
-    animation: fallFromSky 0.6s ease-out forwards;
+    animation: caida 0.6s ease-out forwards;
+    box-shadow: inset 2px 3px 7px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes fallFromSky {
+.throw-right {
+    animation: salidaDerecha 0.45s forwards ease-out;
+}
+
+.throw-left {
+    animation: salidaIzquierda 0.45s forwards ease-out;
+}
+
+.controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+#elemento:focus{
+    outline: none;
+    border: 2px solid var(--azulCielo);
+}
+
+.elementosData{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.controls input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--azulPalido);
+}
+
+.btn {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: var(--rojoCereza);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 110px;
+    color: white;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: var(--rojoCereza);
+    color: white;
+    scale: 0.95;
+    box-shadow: inset 2px 3px 7px rgba(0, 0, 0, 0.4);
+}
+
+.c-code-box {
+    background-color: var(--azulPalido3);
+    padding: 20px;
+    border-radius: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    margin-top: 20px;
+    height: 65vh;
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contenedor{
+    margin: 0px 20px;
+}
+
+.codigo{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.codigoC{
+    background-color: var(--rojoCereza);
+    padding: 60px;
+    border-radius: 20px;
+}
+
+.codigoC h2{
+    color: white;
+}
+
+.botonesCodigo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 8px;
+    width: 50px;
+    background-color: var(--rojoCereza1);
+}
+
+@keyframes caida {
     0% {
         opacity: 0;
         transform: translateY(-200px) scale(0.8) rotate(5deg);
@@ -78,11 +259,7 @@ body {
     }
 }
 
-.throw-right {
-    animation: throwRight 0.45s forwards ease-out;
-}
-
-@keyframes throwRight {
+@keyframes salidaDerecha {
     0% {
         opacity: 1;
         transform: translateX(0) rotate(0deg);
@@ -93,11 +270,8 @@ body {
     }
 }
 
-.throw-left {
-    animation: throwLeft 0.45s forwards ease-out;
-}
 
-@keyframes throwLeft {
+@keyframes salidaIzquierda {
     0% {
         opacity: 1;
         transform: translateX(0) rotate(0deg);
@@ -108,82 +282,66 @@ body {
     }
 }
 
-.controls {
-    flex: 1;
+#tituloPila{
+    font-size: 24px;
+    border: none;
+    font-weight: 600;
+    color: var(--azulPalido2);
+    width: 100%;
+}
+
+#tituloPila::placeholder{
+    color: var(--azulPalido2);
+}
+
+#tituloPila:focus{
+    outline: none;
+}
+
+.cabecera{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Selector{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
-.controls input {
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid #aaa;
+.botonesItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.btn {
+.guardar_pila{
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid #e6395a;
-    background: white;
-    font-weight: bold;
+    border: none ;
+    background: var(--azulCielo);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.btn:hover {
-    background: #e6395a;
-    color: white;
-    scale: 1.1;
+.guardar_pila:hover{
+    scale: 0.95;
+    box-shadow: inset 2px 3px 7px rgba(0, 0, 0, 0.4);
 }
-
-.c-code-box {
-    background: #D9DEEA;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: "Courier New", monospace;
-    font-size: 14px;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    margin-top: 20px;
-    height: 67vh;
-}
-
-.pila{
-    display: flex;
-    background-image: linear-gradient(to bottom, #4271CD, #213967);
-}
-
-.contenedor{
-    margin: 0px 20px;
-}
-
-.codigo{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.codigoC{
-    background-color: white;
-    padding: 30px;
-    border-radius: 20px;
-}
-
-.code-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.btn-small {
-    padding: 6px 12px;
-    font-size: 12px;
-    border-radius: 8px;
-}
-
-.navegacion{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.alerta{
+    /* background-image: url(../resources/fondo.png); */
+    background: white;
+    color: var(--azulPalido2);
+    width: 250px;
+    border-top: 8px solid var(--azulCielo);
+    font-family: "Montserrat Alternates", sans-serif;
+    box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.3);
 }

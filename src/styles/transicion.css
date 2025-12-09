@@ -1,0 +1,31 @@
+
+.entry-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #D93056;  
+    z-index: 9999;
+    animation: slideOut 1s ease forwards;
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.page-content {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: 0.7s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

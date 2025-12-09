@@ -32,6 +32,7 @@ html{
 .App-logo {
   max-height: 18vmin;
   pointer-events: none;
+  z-index: 1;
 }
 
 .App-header {
@@ -43,7 +44,6 @@ html{
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
   gap: 70px;
 }
 
@@ -113,7 +113,9 @@ h1 > span span{
 
 .imagen{
   height: 40vh;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .toriigate{
@@ -144,13 +146,38 @@ footer{
     content: ' Lista ';
   }
 }
+/* BOTÓN CON PARTÍCULAS */
+.particle-btn {
+  position: relative;
+  overflow: visible;
+}
+
+/* ESTILO DE LAS PARTÍCULAS */
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: orbit 0.9s ease-out forwards;
+  z-index: 1;
+}
+
+/* ANIMACIÓN ORBITAL */
+@keyframes orbit {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(var(--dx), var(--dy)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--dx) * 1.15), calc(var(--dy) * 1.15)) scale(0);
+    opacity: 0;
+  }
+}
 
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

@@ -1,17 +1,17 @@
-nav{    
+.hora{    
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     gap: 3px;
-    position: fixed;
-    padding: 30px 5px;
+    padding: 10px 30px;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 300;
-    z-index: 100;
+    margin: 10px 0px;
 }
-.data1{
+
+.data{
     display: flex;
     gap: 10px;
-    color: rgb(0, 0, 0);
+    color: #282b32;
 }

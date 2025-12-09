@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/preloader.css";
+import Sidebar from "../components/sidebar";
 
 const mensajes = [
     "Organizando estructuras de datos...",
@@ -34,12 +35,10 @@ const Loader = () => {
     }, []);
 
     return (
-        <div className="loader__container">
-            <div className="carga">
-                <div className="loader"></div>
-            </div>
-            <p className="loader__msg">{mensaje}</p>
-        </div>
+        <>
+        <Sidebar />
+
+        </>
     );
 };
 
